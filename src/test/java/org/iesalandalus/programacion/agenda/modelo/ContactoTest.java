@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class ContactoTest {
 	
-/*	private static final String MENSAJE_EXCEPCION = "Debería haber saltado la excepción.";
+	private static final String MENSAJE_EXCEPCION = "Debería haber saltado la excepción.";
 
 	@Test
 	public void constructorValidoTest() {
@@ -37,6 +37,8 @@ public class ContactoTest {
 			assertNull(contacto);
 		}
 	}
+	
+	
 	
 	@Test
 	public void constructorTelefonoNoValidoTest() {
@@ -126,7 +128,7 @@ public class ContactoTest {
 	}
 	
 	//No pruebo los métodos get y set ya que están cubiertos en las pruebas anteriores
-	
+	/*
 	@Test
 	public void toStringTest() {
 		Contacto contacto = new Contacto("José Ramón", "950112233", "joseramon.jimenez@iesalandalus.org");
