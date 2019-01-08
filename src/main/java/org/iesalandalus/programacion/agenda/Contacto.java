@@ -10,7 +10,13 @@ public class Contacto {
 	private String correo;
 	
 	
-	
+	public Contacto (String nombre, String telefono, String correo) {	
+		
+		setNombre(nombre);
+		setTelefono(telefono);
+		setCorreo(correo);
+		
+	}
 	
 	
 	public String getNombre() {

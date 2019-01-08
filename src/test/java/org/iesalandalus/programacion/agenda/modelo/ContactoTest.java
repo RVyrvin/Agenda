@@ -1,6 +1,8 @@
 package org.iesalandalus.programacion.agenda.modelo;
 
 import static org.junit.Assert.*;
+
+import org.iesalandalus.programacion.agenda.Contacto;
 import org.junit.Test;
 
 public class ContactoTest {
