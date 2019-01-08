@@ -121,7 +121,7 @@ public class ContactoTest {
 			assertNull(contacto);
 		}
 		try {
-			contacto = new Contacto("José Ramón", "950112233", "joseramon.jimenez@iesalandalus1.org");
+			contacto = new Contacto("José Ramón", "950112233", "joseramon.jimenez@iesalandalus1.o");
 			fail(MENSAJE_EXCEPCION);
 		} catch (IllegalArgumentException e) {
 			assertEquals("El correo no tiene un formato válido.", e.getMessage());
@@ -130,7 +130,7 @@ public class ContactoTest {
 	}
 	
 	//No pruebo los métodos get y set ya que están cubiertos en las pruebas anteriores
-	/*
+	
 	@Test
 	public void toStringTest() {
 		Contacto contacto = new Contacto("José Ramón", "950112233", "joseramon.jimenez@iesalandalus.org");
@@ -148,8 +148,8 @@ public class ContactoTest {
 		assertNotEquals(contacto1, null);
 		assertNotEquals(contacto1, "Prueba");
 		assertNotEquals(contacto1, contacto4);
-		assertEquals(contacto1, contacto2);
-		assertEquals(contacto1, contacto3);
+		assertNotEquals(contacto1, contacto2);
+		assertNotEquals(contacto1, contacto3);
 	}
-*/
+
 }
