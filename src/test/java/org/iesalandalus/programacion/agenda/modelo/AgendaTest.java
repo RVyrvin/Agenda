@@ -4,13 +4,15 @@ import static org.junit.Assert.*;
 
 import javax.naming.OperationNotSupportedException;
 
+import org.iesalandalus.programacion.agenda.Agenda;
+import org.iesalandalus.programacion.agenda.Contacto;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class AgendaTest {
 	
-/*	private static final String MENSAJE_EXCEPCION = "Debería haber saltado la excepción.";
+	private static final String MENSAJE_EXCEPCION = "Debería haber saltado la excepción.";
 	private static final String MENSAJE_NO_EXCEPCION = "No debería haber saltado la excepción.";
 
 
@@ -19,9 +21,9 @@ public class AgendaTest {
 	
 	@BeforeClass
 	public static void setUpBeforeClass() {
-		contacto1 = new Contacto("Contacto1", "950111111", "a1@b.c");
-		contacto2 = new Contacto("Contacto2", "950222222", "a2@b.c");
-		contacto3 = new Contacto("Contacto3", "950333333", "a3@b.c");
+		contacto1 = new Contacto("Contacto1", "950111111", "a1@b.com");
+		contacto2 = new Contacto("Contacto2", "950222222", "a2@b.com");
+		contacto3 = new Contacto("Contacto3", "950333333", "a3@b.com");
 	}
 	
 	@Before
@@ -61,7 +63,7 @@ public class AgendaTest {
 		}
 		assertEquals(2, agenda.getNumContactos());
 	}
-	
+/*
 	@Test
 	public void buscarContactoExistenteTest() {
 		try {
@@ -83,7 +85,7 @@ public class AgendaTest {
 		Contacto contacto = agenda.buscar(contacto2.getNombre());
 		assertNull(contacto);
 	}
-	
+	/*
 	@Test
 	public void borrarContactoExistenteTest() {
 		try {
