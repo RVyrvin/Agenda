@@ -121,7 +121,7 @@ public class ContactoTest {
 			assertNull(contacto);
 		}
 		try {
-			contacto = new Contacto("José Ramón", "950112233", "joseramon.jimenez@iesalandalus1.o");
+			contacto = new Contacto("José Ramón", "950112233", "joseramon.jimenez@iesalandalus1.org");
 			fail(MENSAJE_EXCEPCION);
 		} catch (IllegalArgumentException e) {
 			assertEquals("El correo no tiene un formato válido.", e.getMessage());

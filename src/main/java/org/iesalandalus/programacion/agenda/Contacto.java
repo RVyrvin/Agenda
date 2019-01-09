@@ -3,7 +3,7 @@ package org.iesalandalus.programacion.agenda;
 public class Contacto {
 	
 	private static final String ER_TELEFONO = "[69][0-9]{8}";
-	private static final String ER_CORREO = "\\w+[\\.\\w]*@\\w+[\\.\\w]*\\.\\w{2,5}\\b\\s?";
+	private static final String ER_CORREO = "\\w[.\\w]*@[a-zA-Z]+\\.[a-zA-Z]{2,5}";
 	
 	private String nombre;
 	private String telefono;
@@ -146,7 +146,7 @@ public class Contacto {
 		if (nombre == null) {
 			if (other.nombre != null)
 				return false;
-		} else if (!nombre.equals(other.nombre))
+		} else if (!nombre.equalsIgnoreCase(other.nombre))
 			return false;
 		if (telefono == null) {
 			if (other.telefono != null)
