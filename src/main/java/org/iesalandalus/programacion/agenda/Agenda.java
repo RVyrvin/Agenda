@@ -68,5 +68,35 @@ public class Agenda {
 	
 	private boolean IndiceNoSuperaTamano(int indice) { return indice < MAX_CONTACTOS ? true : false;}
 	
+	
+	
+	public Contacto buscar(String nombre) {
+
+		Contacto contacto = null;
+
+		int index = buscarIndiceCliente(nombre);
+
+		if (index != -1) {
+			contacto = new Contacto(contactos[index].getNombre(), contactos[index].getTelefono(),
+					contactos[index].getCorreo());
+		}
+		return contacto;
+	}
+	
+	
+	private int buscarIndiceCliente (String nombre) {
+		int index = 0;
+		boolean existContact = false;
+		
+		while (contactos[index]!=null) {
+			if (contactos[index].getNombre().equalsIgnoreCase(nombre)) {
+				existContact = true;
+				break;
+			}
+			index++;
+		}
+		return existContact ? index : -1; //vuelve -1 si no se ha encontrado contacto
+	}
+	
 
 }

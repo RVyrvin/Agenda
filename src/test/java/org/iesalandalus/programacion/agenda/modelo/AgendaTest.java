@@ -63,7 +63,7 @@ public class AgendaTest {
 		}
 		assertEquals(2, agenda.getNumContactos());
 	}
-/*
+
 	@Test
 	public void buscarContactoExistenteTest() {
 		try {
