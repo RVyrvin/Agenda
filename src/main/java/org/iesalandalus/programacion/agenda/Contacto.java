@@ -26,7 +26,7 @@ public class Contacto {
 	
 	private void setNombre(String nombre) {
 		
-		if (nombre == null || nombre.equals("")) {
+		if (nombre == null || nombre.trim().equals("")) {
 			throw new IllegalArgumentException("El nombre de un contacto no puede ser nulo o vacío.");
 		} else {
 			this.nombre = nombre;
@@ -41,7 +41,7 @@ public class Contacto {
 	
 	public void setTelefono(String telefono) {
 		
-		if (telefono == null || telefono.equals("")) {
+		if (telefono == null || telefono.trim().equals("")) {
 			throw new IllegalArgumentException("El teléfono de un contacto no puede ser nulo o vacío.");			
 		} else {
 			if (!telefono.matches(ER_TELEFONO)) {
@@ -61,7 +61,7 @@ public class Contacto {
 	public void setCorreo(String correo) {
 
 		
-		if (correo == null || correo.equals("")) {
+		if (correo == null || correo.trim().equals("")) {
 			throw new IllegalArgumentException("El correo de un contacto no puede ser nulo o vacío.");
 		} else {
 			if (!correo.matches(ER_CORREO)) {

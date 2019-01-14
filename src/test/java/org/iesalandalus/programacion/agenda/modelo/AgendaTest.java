@@ -16,7 +16,7 @@ public class AgendaTest {
 	private static final String MENSAJE_NO_EXCEPCION = "No debería haber saltado la excepción.";
 
 
-	public static Contacto contacto1, contacto2, contacto3;
+	public static Contacto contacto1, contacto2, contacto3, contacto4, contacto5, contacto6;
 	public Agenda agenda;
 	
 	@BeforeClass
@@ -24,6 +24,9 @@ public class AgendaTest {
 		contacto1 = new Contacto("Contacto1", "950111111", "a1@b.com");
 		contacto2 = new Contacto("Contacto2", "950222222", "a2@b.com");
 		contacto3 = new Contacto("Contacto3", "950333333", "a3@b.com");
+		contacto4 = new Contacto("Contacto4", "950333333", "a4@b.com");
+		contacto5 = new Contacto("Contacto5", "950333333", "a5@b.com");
+		contacto6 = new Contacto("Contacto6", "950333333", "a6@b.com");
 	}
 	
 	@Before
@@ -62,7 +65,7 @@ public class AgendaTest {
 			fail(MENSAJE_NO_EXCEPCION);
 		}
 		assertEquals(2, agenda.getNumContactos());
-	}
+	}	
 
 	@Test
 	public void buscarContactoExistenteTest() {
