@@ -148,8 +148,8 @@ public class ContactoTest {
 		assertNotEquals(contacto1, null);
 		assertNotEquals(contacto1, "Prueba");
 		assertNotEquals(contacto1, contacto4);
-		assertNotEquals(contacto1, contacto2);
-		assertNotEquals(contacto1, contacto3);
+		assertEquals(contacto1, contacto2);
+		assertEquals(contacto1, contacto3);
 	}
 
 }

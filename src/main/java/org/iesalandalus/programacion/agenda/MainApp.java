@@ -1,12 +1,10 @@
 package org.iesalandalus.programacion.agenda;
 
-import java.util.Arrays;
-
 import javax.naming.OperationNotSupportedException;
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 public class MainApp {
-	
+
 	private static Agenda agenda = new Agenda();
 
 	private static boolean repetir = true;
@@ -29,7 +27,7 @@ public class MainApp {
 	private static void mostrarMenu() {
 		System.out.println("                       ");
 		System.out.println("   ***   MENU   ***    ");
-		System.out.println("                       ");
+		System.out.println(" contactos " + agenda.getNumContactos() + "/" + agenda.getMaxContactos() + "      ");
 		System.out.println("1. Añadir un contacto  ");
 		System.out.println("2. Buscar un contacto  ");
 		System.out.println("3. Borrar un contacto  ");
@@ -51,7 +49,7 @@ public class MainApp {
 				if (opcion >= 1 && opcion <= 5) {
 					elegido = true;
 				} else {
-					System.out.println("Tienes que elejir un entero entre los que hay en menu");
+					System.err.println("Tienes que elejir un entero entre los que hay en menu");
 				}
 			} catch (NumberFormatException nfe) {
 				System.err.println("Tienes que introducir un entero de los que hay en menu");
@@ -67,26 +65,22 @@ public class MainApp {
 		switch (opcion) {
 		case 1:
 			anadirContacto();
-			System.out.println("--- el contacto esta añadido ---/n");
 			break;
 		case 2:
 			buscarContacto();
-			System.out.println("--- se ha terminado la busqueda ---/n");
 			break;
 		case 3:
 			borrarContacto();
-			System.out.println("--- se ha terminado borrar el contacto ---/n");
 			break;
 		case 4:
 			listarAgenda();
-			System.out.println("--- se ha listado la agenda ---/n");
 			break;
 		case 5:
 			repetir = false;
-			System.out.println("El programa se ha terminado!!!");
+			System.out.println("El programa se ha terminado!!!\n");
 			break;
 		default:
-			System.out.println("no tiene que aparecer");
+			System.err.println("este mensaje no tiene que aparecer");
 			break;
 
 		}
@@ -100,71 +94,84 @@ public class MainApp {
 		String telefono = "";
 		String correo = "";
 
-		do {
-			System.out.print("Introduce el nombre: ");
-			nombre = Entrada.cadena();
-		} while (nombre.trim().equals(""));
-
-		do {
-			System.out.print("Introduce el telefono: ");
-			telefono = Entrada.cadena();
-		} while (telefono.trim().equals(""));
-
-		do {
-			System.out.print("Introduce el correo: ");
-			correo = Entrada.cadena();
-		} while (correo.trim().equals(""));
-
-		contacto = new Contacto(nombre, telefono, correo);
-
 		try {
+
+			do {
+				System.out.print("Introduce el nombre: ");
+				nombre = Entrada.cadena();
+			} while (nombre.trim().equals(""));
+
+			do {
+				System.out.print("Introduce el telefono: ");
+				telefono = Entrada.cadena();
+			} while (telefono.trim().equals(""));
+
+			do {
+				System.out.print("Introduce el correo: ");
+				correo = Entrada.cadena();
+			} while (correo.trim().equals(""));
+
+			contacto = new Contacto(nombre, telefono, correo);
+
 			agenda.anadir(contacto);
-		} catch (OperationNotSupportedException e) {
-			e.printStackTrace();
+
+			System.out.println("--- el contacto esta añadido ---\n");
+
+		} catch (IllegalArgumentException | OperationNotSupportedException e) {
+			System.err.println(e.getMessage());
 		}
 
 	}
 
 	private static void buscarContacto() {
-		
-		String nombre = "";	
+
+		String nombre = "";
 		Contacto contacto = null;
-		
+
 		do {
 			System.out.print("Introduce el nombre: ");
 			nombre = Entrada.cadena();
 		} while (nombre.trim().equals(""));
-		
+
 		contacto = agenda.buscar(nombre);
-		
+
 		if (contacto == null) {
-			System.out.println("Este contacto no esta en la agenda.");
+			System.out.println("El contacto con este nombre no esta en la agenda.");
 		} else {
 			System.out.println(contacto.toString());
-		}		
+		}
+
+		System.out.println("--- se ha terminado la busqueda ---\n");
 
 	}
 
 	private static void borrarContacto() {
-		
+
 		String nombre = "";
-		
+
 		do {
 			System.out.print("Introduce el nombre: ");
 			nombre = Entrada.cadena();
 		} while (nombre.trim().equals(""));
-		
+
 		try {
 			agenda.borrar(nombre);
+			System.out.println("--- se ha terminado borrar el contacto ---\n");
 		} catch (OperationNotSupportedException e) {
-			// TODO Auto-generated catch block
-			System.err.println("este contacto no existe.");;
+			System.err.println(e.getMessage());
 		}
 
 	}
 
 	private static void listarAgenda() {
-		System.out.println(Arrays.toString(agenda.getContactos()));
+		if (agenda.getNumContactos() > 0) {
+			System.out.println("\n  *** lista de los contactos ***");
+			for (Contacto contacto : agenda.getContactos()) {
+				System.out.println(contacto);
+			}
+		} else {
+			System.out.println("\n  La agenda esta vacia");
+		}
 	}
 
 }
